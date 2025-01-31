@@ -1,0 +1,56 @@
+---
+import Logo from "./Logo.astro"
+---
+
+<!--Toda la barra del navbar-->
+<header id="landing-header" class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white">
+    <!--Logo Tesla -->
+    <div class="flex flex-grow basis-0">
+        <Logo />
+    </div>
+    <!--Botones principales -->
+    <nav>
+        <ul class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:inlinke-block [&>li>a]:px-4 [&>li>a]:py-2">
+            <li><a href="#">Model S</a></li>
+            <li><a href="#">Model 3</a></li>
+            <li><a href="#">Model X</a></li>
+            <li><a href="#">Model Y</a></li>
+            <li><a href="#">Powerwall</a></li>
+            <li><a href="#">Carga</a></li>
+        </ul>
+    </nav>
+    <!--Segundos botones -->
+    <nav class="flex flex-grow justify-end basis-0">
+        <ul class= "flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:inlinke-block [&>li>a]:px-4 [&>li>a]:py-2">
+            <li><a href="#">Soporte</a></li>
+            <li><a href="#">Tienda</a></li>
+            <li><a href="#">Cuenta</a></li>
+            <li><a href="#">Menú</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!--Color del header -->
+<script>
+    const $header = document.querySelector('#landing-header') as HTMLElement
+    const observerOptions = {
+        root: null, //viewport (solo cuando esté en pantalla)
+        rootMargin: "0px", //margen: en cuanto se vea el elemento cambie de color
+        threshold: 0.3, //Porcentaje de visibilidad
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting } = entry
+            if (isIntersecting) {
+                const color = entry.target.getAttribute('data-header-color') || 'black';
+                console.log(`Sección en pantalla: ${entry.target}, Color: ${color}`);
+                $header.style.color = color
+            }
+        })
+    }, observerOptions)
+
+    const $sections = document.querySelectorAll<HTMLElement>(".landing-section")
+    $sections.forEach((section) => observer.observe(section))
+
+</script>
