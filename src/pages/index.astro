@@ -4,7 +4,10 @@ import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HeroSection.astro'
 import SeccionModeloTres from '../components/SecionModeloTres.astro'
 import SeccionModeloEquis from '../components/SeccionModeloEquis.astro'
-
+import SeccionModelS from '../components/SeccionModelS.astro'
+import SeccionModelY from '../components/SeccionModelY.astro'
+import SeccionPowerwwall from '../components/SeccionPowerwall.astro'
+import SeccionCarga from '../components/SeccionCarga.astro'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -16,11 +19,22 @@ import SeccionModeloEquis from '../components/SeccionModeloEquis.astro'
 			<HeroSection/>
 		</div>
 		<div class="snap-center">
+			<SeccionModelS/>
+		</div>
+		<div class="snap-center">
 			<SeccionModeloTres/>
 		</div>
 		<div class="snap-center">
 			<SeccionModeloEquis/>
 		</div>
-		
+		<div class="snap-center">
+			<SeccionModelY/>
+		</div>
+		<div class="snap-center">
+			<SeccionPowerwwall/>
+		</div>
+		<div class="snap-center">
+			<SeccionCarga/>
+		</div>
 	</main>
 </Layout>
